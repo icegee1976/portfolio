@@ -1,0 +1,10 @@
+# Working / private files — keep these OUT of any public deploy or repo
+PORTFOLIO-INTAKE-BRIEF.md
+portfolio-intake/
+_screenshots_to_edit/
+.claude/
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+*.log

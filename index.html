@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H.Y. — Agentic Engineering Portfolio</title>
+  <meta name="description" content="Agentic Engineer — building systems where autonomous AI agents do the work. Multi-agent pipelines, scheduled agents, Claude skills, and agent-built applications." />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#FBFAF7" />
+
+  <!-- Favicon (inline SVG: slate mark on warm paper) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FBFAF7'/%3E%3Crect x='9' y='9' width='14' height='14' rx='4' fill='%232E4A7A'/%3E%3C/svg%3E" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="H.Y. — Agentic Engineering Portfolio" />
+  <meta property="og:description" content="Systems built by — and run by — AI agents. Multi-agent pipelines, scheduled agents, Claude skills, and agent-built applications." />
+  <meta property="og:type" content="website" />
+  <!-- NOTE: after deploying, change og:image to an ABSOLUTE URL (https://your-domain/assets/img/og.png) -->
+  <meta property="og:image" content="assets/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/img/og.png" />
+
+  <!-- Fonts: Fraunces (display serif) + Inter (Latin body) + Noto Sans TC (CJK) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to work</a>
+
+  <!-- ============================ NAV ============================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner wrap">
+      <a class="nav__brand" href="#top" data-i18n-aria="nav_home">
+        <span class="nav__mark" aria-hidden="true"></span>
+        <span class="nav__name">H.Y.</span>
+        <span class="nav__studio">Agentic Engineer</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work"     data-i18n="nav_work"></a>
+        <a href="#approach" data-i18n="nav_approach"></a>
+        <a href="#about"    data-i18n="nav_about"></a>
+        <a href="#contact"  data-i18n="nav_contact"></a>
+        <button class="lang-toggle" id="langToggle" type="button"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="hero"></section>
+    <section class="approach section" id="approach"></section>
+    <section class="work section" id="work"></section>
+    <section class="about section" id="about"></section>
+    <section class="contact section" id="contact"></section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Project detail dialog -->
+  <dialog class="modal" id="projectModal" aria-label="Project details"></dialog>
+
+  <noscript>
+    <p style="padding:2rem;text-align:center;font-family:sans-serif">
+      This portfolio renders its content with JavaScript. Please enable JavaScript to view the projects.
+    </p>
+  </noscript>
+
+  <!-- Structured data (SEO / E-E-A-T) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "H.Y.",
+    "jobTitle": "Agentic Engineer",
+    "email": "mailto:agneng@proton.me",
+    "knowsAbout": ["Agentic Engineering", "Multi-Agent Systems", "AI Automation", "Claude", "MCP", "Claude Skills", "AI Tooling"]
+  }
+  </script>
+
+  <!-- Data layer (edit these to add content) -->
+  <script src="data/i18n.js"></script>
+  <script src="data/profile.js"></script>
+  <script src="data/projects.js"></script>
+  <!-- Render engine -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
