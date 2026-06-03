@@ -1,6 +1,7 @@
 # Working / private files — keep these OUT of any public deploy or repo
 PORTFOLIO-INTAKE-BRIEF.md
 portfolio-intake/
+collected-projects*.md
 _screenshots_to_edit/
 .claude/
 

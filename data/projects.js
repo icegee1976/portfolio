@@ -246,6 +246,54 @@ window.PROJECTS = [
 
   /* 06 ───────────────────────────────────────────────────────── */
   {
+    slug: "vibe-coding-safety",
+    category: "skills-tooling",
+    featured: true,
+    year: "2026",
+    source: "Code",
+    title: {
+      zh: "AI 編碼安全插件 — 攔住代理寫出的高風險程式碼",
+      en: "AI-Coding Safety Plugin",
+    },
+    tagline: {
+      zh: "用確定性掃描器、一個獨立脈絡的審查代理、加上寫檔前 hook，把 AI 寫出來的高風險漏洞擋在落盤之前。",
+      en: "A deterministic scanner, an independent fresh-context reviewer agent, and pre-write hooks that block high-risk vulnerabilities before AI-written code ever hits disk.",
+    },
+    description: {
+      zh: "一個給「AI 輔助寫程式」用的安全插件，結合三層防護：regex 確定性掃描、一個獨立脈絡的審查代理，以及寫檔／推送前的 hook。它的起點是一次真實的「AI 自審漏報」——代理自己審自己的程式碼，卻把漏洞放了過去——於是我把這個失效模式明確建模出來，做成可安裝、會主動阻擋、又能交接的安全工作流，而不是事後才補。",
+      en: "A safety plugin for AI-assisted coding that layers three defenses: deterministic regex scanning, an independent fresh-context reviewer agent, and hooks that gate writes and pushes. It started from a real \"AI self-review miss\" — an agent reviewing its own code and waving a vulnerability through — so I modeled that failure mode explicitly into an installable, actively-blocking, handoff-ready workflow instead of patching after the fact.",
+    },
+    terminal: {
+      title: "safety-hook",
+      lines: [
+        "$ git commit   (pre-write hook fires)",
+        "  scan: 1 high-risk pattern flagged",
+        "  → escalated to independent reviewer",
+        "  reviewer: CONFIRMED — eval() on user input",
+        "  commit BLOCKED · patch suggested",
+      ],
+    },
+    pipeline: [
+      { label: { zh: "掃描", en: "Scan" }, note: { zh: "先用確定性樣式找出高風險片段。", en: "Deterministic patterns find high-risk snippets first." } },
+      { label: { zh: "獨立複查", en: "Independent review" }, note: { zh: "交給全新脈絡的審查代理確認與修補。", en: "A fresh-context reviewer agent confirms and patches." } },
+      { label: { zh: "阻擋", en: "Block" }, note: { zh: "在寫檔與推送前設下安全閘門。", en: "Safety gates sit before any write or push." } },
+    ],
+    highlights: [
+      { zh: "明確把「AI 自審會漏」這個失效模式建模出來，強制改用一個獨立脈絡的代理來複查。",
+        en: "Explicitly models the \"AI self-review blind spot\" and forces a separate, fresh-context agent to re-check." },
+      { zh: "寫檔前的 hook 會在內容真正落盤之前，攔下高風險的注入樣式。",
+        en: "Pre-write hooks intercept high-risk injection patterns before content ever reaches disk." },
+      { zh: "先用確定性 regex 找出可疑片段，再交給審查代理確認——快，而且不靠運氣。",
+        en: "Deterministic regex finds suspect snippets first, then the reviewer agent confirms — fast, and not left to chance." },
+      { zh: "完整打包成可安裝的插件：技能、審查代理、hook、文件與 release 結構一應俱全。",
+        en: "Fully packaged as an installable plugin — skill, reviewer agent, hooks, docs, and release structure included." },
+    ],
+    tech: ["Python", "Regex Scanner", "Agent Review", "Pre-write Hooks", "Plugin Packaging"],
+    status: { zh: "已打包、可安裝", en: "Packaged & installable" },
+  },
+
+  /* 07 ───────────────────────────────────────────────────────── */
+  {
     slug: "trend-briefing-cli",
     category: "skills-tooling",
     year: "2026",
@@ -299,7 +347,7 @@ window.PROJECTS = [
     status: { zh: "可用的 CLI 工具", en: "Working CLI tool" },
   },
 
-  /* 07 ───────────────────────────────────────────────────────── */
+  /* 08 ───────────────────────────────────────────────────────── */
   {
     slug: "raw-viewer",
     category: "agent-apps",
@@ -333,7 +381,7 @@ window.PROJECTS = [
     status: { zh: "個人工具（開源）", en: "Personal tool (open-source)" },
   },
 
-  /* 08 ───────────────────────────────────────────────────────── */
+  /* 09 ───────────────────────────────────────────────────────── */
   {
     slug: "writers-guild",
     category: "skills-tooling",
@@ -378,7 +426,7 @@ window.PROJECTS = [
     status: { zh: "已發佈（開源、安裝中使用）", en: "Shipped (open-source, installed & in use)" },
   },
 
-  /* 09 ───────────────────────────────────────────────────────── */
+  /* 10 ───────────────────────────────────────────────────────── */
   {
     slug: "web-design-review",
     category: "skills-tooling",
@@ -417,7 +465,7 @@ window.PROJECTS = [
     ],
   },
 
-  /* 10 ───────────────────────────────────────────────────────── */
+  /* 11 ───────────────────────────────────────────────────────── */
   {
     slug: "video-contest",
     category: "skills-tooling",
