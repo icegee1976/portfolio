@@ -559,6 +559,92 @@ window.PROJECTS = [
 
   /* 13 ───────────────────────────────────────────────────────── */
   {
+    slug: "lumagrab-video-downloader",
+    category: "agent-apps",
+    year: "2026",
+    source: "Codex",
+    title: {
+      zh: "LumaGrab — 一鍵安裝的桌面影片下載器",
+      en: "LumaGrab — One-Installer Desktop Video Downloader",
+    },
+    tagline: {
+      zh: "把 yt-dlp 和 ffmpeg 全部打包進一個 Electron app，做成不用裝任何命令列工具、雙擊就能用的 Windows 影片下載器。",
+      en: "Bundles yt-dlp and ffmpeg into one Electron app — a Windows video downloader end-users run by double-clicking, with no command-line tools to install.",
+    },
+    description: {
+      zh: "一個 Windows 桌面工具：貼上影片網址、選 MP4／MKV／MP3／WAV、用畫質預設控制輸出。工程重點在「產品化」——把 yt-dlp、ffmpeg、ffprobe 連同 Electron app 一起用 electron-builder 打包成 NSIS 安裝檔，使用者不用自己裝 Node 或命令列工具；主程序用 yt-dlp 的 `--progress-template` 解析百分比／速度／ETA，再透過 IPC 即時推到前端；下載歷史存在 userData、保留最近 120 筆、支援暫停後續傳。",
+      en: "A Windows desktop tool: paste a URL, pick MP4/MKV/MP3/WAV, and control output with quality presets. The engineering focus is productization — yt-dlp, ffmpeg, and ffprobe are bundled with the Electron app into an NSIS installer via electron-builder, so users install nothing extra; the main process parses percent/speed/ETA from yt-dlp's `--progress-template` and streams it to the UI over IPC; and download history lives in userData, keeps the latest 120 items, and supports resume after pause.",
+    },
+    pipeline: [
+      { label: { zh: "輸入網址", en: "URL" }, note: { zh: "前端驗證單筆或多筆影片網址。", en: "The UI validates one or many video URLs." } },
+      { label: { zh: "下載", en: "Download" }, note: { zh: "主程序用內建 yt-dlp 執行下載與選格式。", en: "The main process runs bundled yt-dlp for download and formats." } },
+      { label: { zh: "轉檔", en: "Convert" }, note: { zh: "ffmpeg／ffprobe 由內建 bin 提供。", en: "ffmpeg/ffprobe come from the bundled bin folder." } },
+      { label: { zh: "打包", en: "Install" }, note: { zh: "electron-builder 產出 NSIS 安裝檔。", en: "electron-builder produces the NSIS installer." } },
+    ],
+    metrics: [
+      { value: "v0.3.2", label: { zh: "應用版本", en: "app version" } },
+      { value: "4", label: { zh: "輸出格式", en: "output formats" } },
+      { value: "120", label: { zh: "歷史紀錄上限", en: "history cap" } },
+    ],
+    highlights: [
+      { zh: "把 yt-dlp／ffmpeg／ffprobe 連同 app 一起用 electron-builder 打包成 NSIS 安裝檔，使用者裝完雙擊就能用。",
+        en: "Bundles yt-dlp/ffmpeg/ffprobe with the app into an NSIS installer (electron-builder) — users just install and double-click." },
+      { zh: "用 yt-dlp 的 `--progress-template` 解析百分比、速度與 ETA，透過 IPC 即時回報到前端。",
+        en: "Parses percent, speed, and ETA from yt-dlp's `--progress-template` and streams them to the UI over IPC." },
+      { zh: "下載歷史存在 Electron userData、保留最近 120 筆，支援暫停後續傳。",
+        en: "Download history lives in Electron userData, keeps the latest 120 items, and supports resume after pause." },
+      { zh: "支援單筆／批次網址、格式切換、品質選擇與暫停／繼續／取消。",
+        en: "Single or batch URLs, format switching, quality selection, and pause/resume/cancel." },
+    ],
+    tech: ["Electron", "Vite", "yt-dlp", "ffmpeg", "electron-builder", "NSIS"],
+    status: { zh: "可打包成 Windows 安裝檔（v0.3.2）", en: "Packable Windows installer (v0.3.2)" },
+  },
+
+  /* 14 ───────────────────────────────────────────────────────── */
+  {
+    slug: "html-gnrtr",
+    category: "agent-apps",
+    year: "2026",
+    source: "Codex",
+    title: {
+      zh: "文件轉 HTML 轉換器 — 多格式 + OCR 文字層",
+      en: "Document-to-HTML Converter",
+    },
+    tagline: {
+      zh: "把 Office、PDF 與簡報轉成 Chrome 能預覽、能翻譯、能打包下載的 HTML——PDF 還會自動補上一層 OCR 文字。",
+      en: "Converts Office files, PDFs, and slides into HTML that Chrome can preview and translate — PDFs even get an auto OCR text layer.",
+    },
+    description: {
+      zh: "一個本機的 ASP.NET Core（.NET 9 / C#）服務，把常見文件轉成適合在 Chrome 預覽與翻譯的 HTML：一般 Office 檔走 LibreOffice headless 匯出；PDF 與簡報則先轉成高解析頁面圖、再用 Windows OCR 疊上一層可被瀏覽器翻譯的文字，版面與圖片都保留。每次轉換都產出一個預覽網址和一個 ZIP 下載檔。工程上特別顧到穩定性：LibreOffice 跑在獨立 profile、每個 job 設 120 秒 timeout，避免單一檔案把整個服務卡死。",
+      en: "A local ASP.NET Core (.NET 9 / C#) service that turns common documents into HTML built for Chrome preview and translation: Office files go through LibreOffice headless export; PDFs and slides render to high-resolution page images, then Windows OCR lays a browser-translatable text layer on top while preserving layout and imagery. Every job returns a preview URL and a downloadable ZIP. Stability got real attention: LibreOffice runs in an isolated profile with a 120-second per-job timeout, so one bad file can't hang the whole service.",
+    },
+    pipeline: [
+      { label: { zh: "上傳", en: "Upload" }, note: { zh: "multipart 上傳，限制 200MB。", en: "Multipart upload, capped at 200MB." } },
+      { label: { zh: "轉換", en: "Convert" }, note: { zh: "Office 走 LibreOffice；PDF/簡報走影像＋OCR。", en: "Office via LibreOffice; PDF/slides via image render + OCR." } },
+      { label: { zh: "預覽", en: "Preview" }, note: { zh: "輸出 index.html，由 /jobs 靜態服務。", en: "Outputs index.html served from /jobs." } },
+      { label: { zh: "下載", en: "Download" }, note: { zh: "把輸出資料夾打包成 ZIP。", en: "Packages the output folder into a ZIP." } },
+    ],
+    metrics: [
+      { value: "20", label: { zh: "支援副檔名", en: "supported formats" } },
+      { value: "200MB", label: { zh: "上傳上限", en: "upload limit" } },
+      { value: "120s", label: { zh: "轉換 timeout", en: "job timeout" } },
+    ],
+    highlights: [
+      { zh: "支援 20 種副檔名（doc/docx/odt/pdf/ppt/pptx/xls/xlsx…），一個入口全收。",
+        en: "Handles 20 extensions (doc/docx/odt/pdf/ppt/pptx/xls/xlsx…) through one entry point." },
+      { zh: "PDF 與簡報先轉高解析頁面圖，再用 Windows OCR 疊上「可翻譯」的文字層。",
+        en: "PDFs and slides render to high-res page images, then Windows OCR adds a translatable text layer." },
+      { zh: "LibreOffice 跑在獨立 profile ＋每個 job 120 秒 timeout，單一檔案卡住也拖不垮服務。",
+        en: "LibreOffice runs in an isolated profile with a 120s per-job timeout, so one bad file never drags the service down." },
+      { zh: "ASP.NET Core 提供 `/api/formats`、`/api/convert` 與 ZIP 下載 API，前端支援拖放、即時狀態與 iframe 預覽。",
+        en: "ASP.NET Core exposes `/api/formats`, `/api/convert`, and a ZIP download API; the frontend has drag-drop, live status, and iframe preview." },
+    ],
+    tech: ["ASP.NET Core", ".NET 9", "C#", "LibreOffice Headless", "Windows OCR", "ZIP packaging"],
+    status: { zh: "可本機執行（start.ps1 → localhost:5166）", en: "Runs locally (start.ps1 → localhost:5166)" },
+  },
+
+  /* 15 ───────────────────────────────────────────────────────── */
+  {
     slug: "web-design-review",
     category: "skills-tooling",
     year: "2026",
@@ -596,7 +682,7 @@ window.PROJECTS = [
     ],
   },
 
-  /* 14 ───────────────────────────────────────────────────────── */
+  /* 16 ───────────────────────────────────────────────────────── */
   {
     slug: "video-contest",
     category: "skills-tooling",
