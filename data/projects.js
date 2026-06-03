@@ -428,6 +428,137 @@ window.PROJECTS = [
 
   /* 10 ───────────────────────────────────────────────────────── */
   {
+    slug: "yt-batch-downloader",
+    category: "agent-apps",
+    year: "2026",
+    source: "Cowork",
+    title: {
+      zh: "YT 批次下載器 — 有佇列與即時進度的本機下載台",
+      en: "YT Batch Downloader",
+    },
+    tagline: {
+      zh: "把 yt-dlp 包成一個本機 Web 介面：分析、選格式、排隊下載，還用 SSE 即時回報進度與速度。",
+      en: "Wraps yt-dlp in a local web UI: analyze, pick formats, queue downloads, and stream realtime progress and speed over SSE.",
+    },
+    description: {
+      zh: "一個本機的媒體下載工具，把 yt-dlp 的媒體分析、格式選擇、字幕／縮圖選項、下載佇列、取消／清理與即時進度，全部收進一個 Flask Web UI。工程重點在「即時感」與「不卡死」：用 SSE 把進度、速度與佇列狀態推到前端，用背景執行緒加佇列控制同時下載數，並支援取消與本機歷史管理。",
+      en: "A local media-download tool that wraps yt-dlp's analysis, format selection, subtitle/thumbnail options, download queue, cancel/cleanup, and live progress into one Flask web UI. The engineering focus is responsiveness without locking up: SSE pushes progress, speed, and queue state to the frontend; background threads plus a queue cap concurrency; and it supports cancellation and local history.",
+    },
+    terminal: {
+      title: "yt-batch",
+      lines: [
+        "$ analyze  <url>   (playlist · 12 items)",
+        "  formats: 1080p / 720p / audio",
+        "  queued 12 · concurrency 3",
+        "  ▸ 04/12   58%   3.2 MB/s   (SSE live)",
+        "  ✓ done · saved to ./downloads",
+      ],
+    },
+    pipeline: [
+      { label: { zh: "分析", en: "Analyze" }, note: { zh: "讀取媒體資訊、格式、字幕與縮圖候選。", en: "Reads media info, formats, subtitles, and thumbnails." } },
+      { label: { zh: "排隊", en: "Queue" }, note: { zh: "放進本機佇列並限制同時下載數。", en: "Adds to a local queue and caps concurrency." } },
+      { label: { zh: "即時追蹤", en: "Track live" }, note: { zh: "用 SSE 推送進度、速度與完成狀態。", en: "SSE pushes progress, speed, and completion." } },
+    ],
+    highlights: [
+      { zh: "用 SSE 把下載進度、速度與佇列狀態即時推到前端，不用一直輪詢。",
+        en: "Streams progress, speed, and queue state to the UI over SSE — no constant polling." },
+      { zh: "背景執行緒加佇列控制同時下載數，可取消、可清理，不會把機器塞爆。",
+        en: "Background threads plus a queue cap concurrency, with cancel and cleanup so it never floods the machine." },
+      { zh: "支援格式選擇、音訊輸出、字幕、縮圖，並自動判斷播放清單或單支影片。",
+        en: "Format selection, audio output, subtitles, thumbnails, and automatic playlist-vs-single-video handling." },
+    ],
+    tech: ["Python", "Flask", "yt-dlp", "SSE", "Threading / Queue", "ffmpeg"],
+    status: { zh: "可用的本機媒體工具", en: "Working local media tool" },
+  },
+
+  /* 11 ───────────────────────────────────────────────────────── */
+  {
+    slug: "pdf-distiller",
+    category: "agent-apps",
+    year: "2026",
+    source: "Cowork",
+    title: {
+      zh: "PDF 蒸餾器 — 瀏覽器本機的頁面抽取工具",
+      en: "PDF Distiller",
+    },
+    tagline: {
+      zh: "上傳 PDF、輸入頁碼範圍，一鍵輸出成新的 PDF 或 JPG／PNG 壓縮包——全程在瀏覽器本機處理。",
+      en: "Upload a PDF, type page ranges, and export a new PDF or a JPG/PNG ZIP — all processed locally in the browser.",
+    },
+    description: {
+      zh: "一個 React/Vite 的文件小工具：上傳 PDF、輸入要的頁碼範圍，選擇輸出成新 PDF、JPG 壓縮包或 PNG 壓縮包。它刻意用前端的 PDF 與 ZIP 函式庫在瀏覽器裡處理，檔案不離開本機、也不用裝笨重的桌面套件。",
+      en: "A React/Vite document utility: upload a PDF, type the page ranges you want, and export a new PDF, a JPG ZIP, or a PNG ZIP. It deliberately runs the PDF and ZIP work client-side in the browser — files never leave the machine and there's no heavyweight desktop suite to install.",
+    },
+    pipeline: [
+      { label: { zh: "載入", en: "Load" }, note: { zh: "在本機選一個 PDF。", en: "Pick a PDF locally." } },
+      { label: { zh: "選頁", en: "Select pages" }, note: { zh: "輸入頁碼範圍並選輸出格式。", en: "Enter page ranges and choose a format." } },
+      { label: { zh: "輸出", en: "Export" }, note: { zh: "在本機產生新文件或圖片壓縮包。", en: "Generate a new local document or image archive." } },
+    ],
+    metrics: [
+      { value: "3", label: { zh: "輸出格式", en: "export formats" } },
+      { value: "100%", label: { zh: "瀏覽器本機處理", en: "in-browser, client-side" } },
+    ],
+    highlights: [
+      { zh: "頁碼範圍選取，從大型 PDF 快速抽出指定頁面。",
+        en: "Page-range selection pulls exactly the pages you want out of a large PDF." },
+      { zh: "三種輸出：新 PDF、JPG 壓縮包、PNG 壓縮包，覆蓋常見的文件再利用。",
+        en: "Three outputs — new PDF, JPG ZIP, PNG ZIP — covering common document-reuse needs." },
+      { zh: "全程在瀏覽器本機處理，檔案不上傳、也不依賴大型桌面套件。",
+        en: "Everything runs client-side in the browser — no uploads, no heavyweight desktop dependencies." },
+    ],
+    tech: ["React", "TypeScript", "Vite", "pdf-lib", "pdfjs-dist", "JSZip"],
+    status: { zh: "可用的本機文件工具", en: "Working local document tool" },
+  },
+
+  /* 12 ───────────────────────────────────────────────────────── */
+  {
+    slug: "flickr-album-downloader",
+    category: "agent-apps",
+    year: "2026",
+    source: "Cowork",
+    title: {
+      zh: "Flickr 相簿下載器 — 批次抓圖、自動整理",
+      en: "Flickr Album Downloader",
+    },
+    tagline: {
+      zh: "貼上公開相簿網址，就批次抓回最大尺寸、自動整理成乾淨資料夾——還附三種介面與單元測試。",
+      en: "Paste public album URLs and it batch-grabs the largest size into clean, auto-named folders — with three UIs and unit tests.",
+    },
+    description: {
+      zh: "一個 Windows/Python 的批次下載工具：貼上一個或多個公開 Flickr 相簿網址、選好目的資料夾，它就排隊把照片抓回來、抓最大可用尺寸，並依相簿與照片資訊建立好讀的資料夾與檔名。比較有意思的是它做了三套介面——新版本機 Web UI、Python/Tkinter 桌面版、以及 PowerShell/WinForms 備援——還寫了單元測試，換環境也跑得起來。只碰公開相簿，不存帳號、cookie 或私人網址。",
+      en: "A Windows/Python batch downloader: paste one or more public Flickr album URLs, choose a destination, and it queues the photos at the largest available size, building readable folders and filenames from album/photo metadata. The interesting part is it ships three interfaces — a modern local web UI, a Python/Tkinter desktop version, and a PowerShell/WinForms fallback — plus unit tests, so it runs across environments. It touches public albums only — no accounts, cookies, or private URLs stored.",
+    },
+    terminal: {
+      title: "flickr-dl",
+      lines: [
+        "$ flickrdl  <album-url> ×3",
+        "  resolved 3 albums · 214 photos",
+        "  size: largest available",
+        "  → ./Albums/<name>/   (auto-named)",
+        "  ✓ 214/214 done",
+      ],
+    },
+    pipeline: [
+      { label: { zh: "輸入", en: "Input" }, note: { zh: "貼上公開相簿網址、選目的資料夾。", en: "Paste public album URLs, pick a folder." } },
+      { label: { zh: "解析", en: "Resolve" }, note: { zh: "讀相簿與照片資訊，選最大可用尺寸。", en: "Read metadata, choose the largest size." } },
+      { label: { zh: "整理", en: "Organize" }, note: { zh: "批次下載並建立清楚的資料夾結構。", en: "Batch-download into a clean folder structure." } },
+    ],
+    highlights: [
+      { zh: "一次貼多個相簿，排隊下載並顯示整體進度。",
+        en: "Paste multiple albums at once; they queue with overall progress." },
+      { zh: "依相簿與照片資訊自動建立好讀的資料夾與檔名，省掉事後整理。",
+        en: "Auto-builds readable folders and filenames from metadata, skipping manual cleanup." },
+      { zh: "三套介面（Web UI／Tkinter／PowerShell-WinForms 備援）＋單元測試，換環境也能跑。",
+        en: "Three UIs (web / Tkinter / PowerShell-WinForms fallback) plus unit tests, so it runs across environments." },
+      { zh: "只碰公開相簿——不存帳號、cookie 或私人網址。",
+        en: "Public albums only — it stores no accounts, cookies, or private URLs." },
+    ],
+    tech: ["Python", "PowerShell", "Local Web UI", "Tkinter", "WinForms", "Unit Tests"],
+    status: { zh: "可用的實用工具", en: "Working utility" },
+  },
+
+  /* 13 ───────────────────────────────────────────────────────── */
+  {
     slug: "web-design-review",
     category: "skills-tooling",
     year: "2026",
@@ -465,7 +596,7 @@ window.PROJECTS = [
     ],
   },
 
-  /* 11 ───────────────────────────────────────────────────────── */
+  /* 14 ───────────────────────────────────────────────────────── */
   {
     slug: "video-contest",
     category: "skills-tooling",
