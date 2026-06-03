@@ -246,6 +246,61 @@ window.PROJECTS = [
 
   /* 06 ───────────────────────────────────────────────────────── */
   {
+    slug: "trend-briefing-cli",
+    category: "skills-tooling",
+    year: "2026",
+    source: "Cowork",
+    title: {
+      zh: "趨勢簡報 CLI — 趨勢情報自動化",
+      en: "Trend Briefing CLI — Trend-Intelligence Automation",
+    },
+    tagline: {
+      zh: "每天自動抓公開趨勢、用 LLM 評分、生成切入角度與草稿——但判斷與發布一律留給人。",
+      en: "Every day it pulls public trends, scores them with an LLM, and drafts angles and copy — judgment and publishing stay with a human.",
+    },
+    description: {
+      zh: "一個 CLI 工具：每天抓公開的熱門來源、用 LLM 依利基（niche）評分排序，產生切入角度與多種格式的草稿，再把全部寫進本機 SQLite 與當日簡報。它刻意只自動化「低風險的蒐集與起草」，把判斷、編輯、發布、回覆全部留給人——讓代理流程不會反過來變成平台風險。（為保護個人副業，平台、帳號與定位細節都已拿掉。）",
+      en: "A CLI tool that, each day, pulls public trend sources, scores and ranks them with an LLM by niche, generates angles and multi-format drafts, then writes everything into a local SQLite store and a daily brief. By design it only automates the low-risk parts — collection and drafting — and keeps judgment, editing, posting, and replies human-led, so the agent workflow never becomes platform risk. (Platform, account, and positioning details are stripped to protect a personal side-project.)",
+    },
+    terminal: {
+      title: "trendcli",
+      lines: [
+        "$ trendcli brief",
+        "  scanned 5 public feeds · 42 candidates",
+        "  scored by niche → kept top 6",
+        "  drafted 6 angles, 3 formats each",
+        "  → daily_brief.md ready for review",
+        "  auto-post: DISABLED (human only)",
+      ],
+    },
+    pipeline: [
+      { label: { zh: "公開來源", en: "Public feeds" }, note: { zh: "只讀公開資料，不碰私密內容。", en: "Reads public data only — never private content." } },
+      { label: { zh: "評分起草", en: "Score & draft" }, note: { zh: "LLM 依利基評分，產生角度與草稿。", en: "LLM scores by niche, drafts angles + copy." } },
+      { label: { zh: "人工發布", en: "Human publish" }, note: { zh: "判斷、發布與互動全留給人。", en: "Judgment, posting, and replies stay human." } },
+    ],
+    metrics: [
+      { value: "8", label: { zh: "CLI 指令", en: "CLI commands" } },
+      { value: "6", label: { zh: "提示模板", en: "prompt templates" } },
+      { value: "0", label: { zh: "自動發布動作", en: "auto-posting actions" } },
+    ],
+    highlights: [
+      { zh: "八個 CLI 指令一條龍：init、scan、list、ideate、draft、brief、log、weekly review。",
+        en: "Eight CLI commands end to end: init, scan, list, ideate, draft, brief, log, weekly review." },
+      { zh: "本機 SQLite 保存 trends、angles、drafts、briefs 與成效紀錄，能回頭看哪些角度真的有效。",
+        en: "A local SQLite DB stores trends, angles, drafts, briefs, and performance logs — so you can see which angles actually worked." },
+      { zh: "每天一個 brief 指令，就把掃描、精選、角度、草稿與配圖建議一次做完。",
+        en: "A single daily `brief` command runs scan, curation, angles, drafts, and visual suggestions in one pass." },
+      { zh: "文件明文禁止自動發布——代理只負責蒐集與起草，從不碰帳號互動。",
+        en: "Docs explicitly forbid auto-posting — the agent only collects and drafts, never touching account interactions." },
+      { zh: "只讀公開資料、不爬私密內容；帳號與定位資訊不進版本庫。",
+        en: "Reads only public data, never private content; account and positioning details stay out of the repo." },
+    ],
+    tech: ["Python", "CLI", "SQLite", "YAML config", "LLM scoring", "Scheduled task"],
+    status: { zh: "可用的 CLI 工具", en: "Working CLI tool" },
+  },
+
+  /* 07 ───────────────────────────────────────────────────────── */
+  {
     slug: "raw-viewer",
     category: "agent-apps",
     year: "2026",
@@ -278,7 +333,7 @@ window.PROJECTS = [
     status: { zh: "個人工具（開源）", en: "Personal tool (open-source)" },
   },
 
-  /* 07 ───────────────────────────────────────────────────────── */
+  /* 08 ───────────────────────────────────────────────────────── */
   {
     slug: "writers-guild",
     category: "skills-tooling",
@@ -323,7 +378,7 @@ window.PROJECTS = [
     status: { zh: "已發佈（開源、安裝中使用）", en: "Shipped (open-source, installed & in use)" },
   },
 
-  /* 08 ───────────────────────────────────────────────────────── */
+  /* 09 ───────────────────────────────────────────────────────── */
   {
     slug: "web-design-review",
     category: "skills-tooling",
@@ -362,7 +417,7 @@ window.PROJECTS = [
     ],
   },
 
-  /* 09 ───────────────────────────────────────────────────────── */
+  /* 10 ───────────────────────────────────────────────────────── */
   {
     slug: "video-contest",
     category: "skills-tooling",
