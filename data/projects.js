@@ -195,6 +195,8 @@ window.PROJECTS = [
         en: "Composes my own writers-guild skill — demonstrating skills assembling into larger autonomous systems." },
       { zh: "時間校正關卡：用三步驟日期比對，避免 App 重開後自動補跑、造成誤發。",
         en: "A time-correction gate (three-step date comparison) prevents mis-fired catch-up runs when the app reopens after a missed slot." },
+      { zh: "最近還收了尾：用一張輕量的成效追蹤表記每篇的儲存／分享／留言，回頭餵進選題——知識卡看「儲存 > 分享 > 留言 > 讚」。",
+        en: "Recently closed the loop: a lightweight performance table logs saves/shares/comments per post and feeds it back into topic selection — for knowledge cards, saves > shares > comments > likes." },
     ],
     tech: ["Python", "Pillow", "Claude Scheduled Tasks", "MCP (Gmail / Calendar)", "WebSearch", "writers-guild skill"],
     status: { zh: "生產中", en: "Production" },
@@ -645,6 +647,59 @@ window.PROJECTS = [
 
   /* 15 ───────────────────────────────────────────────────────── */
   {
+    slug: "code-review",
+    category: "skills-tooling",
+    year: "2026",
+    source: "Cowork",
+    title: {
+      zh: "Code Review — 大師級程式碼審視技能",
+      en: "Code Review — A Master-Grade Code-Review Skill",
+    },
+    tagline: {
+      zh: "讓代理同時化身五種角色、用六大面向審視任何程式碼——而且這套技能的效果是用 eval 量測過的，不是憑感覺。",
+      en: "Turns the agent into five expert roles reviewing any code across six dimensions — and its effectiveness is measured with evals, not vibes.",
+    },
+    description: {
+      zh: "一個打包好的 Claude 技能，也是我那套 web-design-review 的「程式碼版」對等物：讓代理同時扮演資深架構師／效能工程師／資安研究員／DX 設計師／程式碼考古學家，從正確性與效能、架構與可維護性（含 vibe coding 健康度）、可讀性、介面操作性、資安隱私、測試可觀測性六大面向審視程式碼，再用 P0/P1/P2 排出該先修什麼。每條建議都要具體、可量化、講清楚取捨，並拿 Carmack／Ousterhout／Linus 等大師的視角當尺。",
+      en: "A packaged Claude skill — the code-equivalent of my web-design-review skill: the agent plays a senior architect, performance engineer, security researcher, DX designer, and code archaeologist at once, reviewing code across six dimensions (correctness & performance, architecture & maintainability incl. vibe-coding health, readability, interface/operability, security & privacy, testing/observability) and ranks fixes by P0/P1/P2. Every suggestion must be concrete, quantified, and trade-off-aware, measured against the lens of masters like Carmack, Ousterhout, and Linus.",
+    },
+    terminal: {
+      title: "eval · with-skill vs baseline",
+      lines: [
+        "$ run-eval   5 tasks × 2 configs",
+        "  with-skill avg: 0.93   (4/5 at 100%)",
+        "  baseline   avg: 0.77",
+        "  Δ +0.16",
+        "  regression caught + fixed: short snippets",
+        "  → re-validated in iteration-2  ✓",
+      ],
+    },
+    pipeline: [
+      { label: { zh: "定情境", en: "Frame" }, note: { zh: "先判斷程式類型、技術棧、生命週期、是否 AI 生成。", en: "Identify code type, stack, lifecycle, and whether it's AI-generated." } },
+      { label: { zh: "六面向審視", en: "Six-lens review" }, note: { zh: "五種角色、六大面向逐一找出具體觀察。", en: "Five roles, six dimensions, concrete observations." } },
+      { label: { zh: "分級報告", en: "Ranked report" }, note: { zh: "用 P0/P1/P2 排出先修什麼，附取捨。", en: "P0/P1/P2 prioritization, with trade-offs." } },
+    ],
+    metrics: [
+      { value: "+0.16", label: { zh: "eval 加分 vs 無技能", en: "eval lift vs baseline" } },
+      { value: "6", label: { zh: "審視面向", en: "review dimensions" } },
+      { value: "5", label: { zh: "專家角色", en: "expert roles" } },
+    ],
+    highlights: [
+      { zh: "效果用 eval 量測過：5 題裡 with-skill 平均 0.93、baseline 0.77（+0.16），其中 4 題拿到 100%。",
+        en: "Effectiveness measured with evals: across 5 tasks, with-skill averaged 0.93 vs 0.77 baseline (+0.16), with 4 of 5 at 100%." },
+      { zh: "eval 還抓到一個真問題——短片段被套上重型報告模板——於是加了「先決定報告規模」的三段式修正，再跑一次驗證修好。",
+        en: "The eval even caught a real regression — short snippets got the heavyweight template — so I added a \"pick the report scale first\" three-mode fix and re-ran to confirm it." },
+      { zh: "特別針對「vibe coding」（AI 輔助生成的程式碼）：找出表面正常、但難維護難擴充、藏著風險的地方。",
+        en: "Tuned for \"vibe coding\" (AI-assisted code) — surfacing what looks fine but is hard to maintain, hard to extend, or quietly risky." },
+      { zh: "六大面向以大師視角當尺（Carmack／Ousterhout／Linus／Knuth…），並用漸進式揭露只在需要時載入參考檔。",
+        en: "Six dimensions measured against masters (Carmack, Ousterhout, Linus, Knuth…), with progressive disclosure loading reference files only when needed." },
+    ],
+    tech: ["Claude Skill", "Eval Harness", "Severity Rubric", "Progressive Disclosure"],
+    status: { zh: "已發佈（v1.1，eval 驗證過）", en: "Shipped (v1.1, eval-validated)" },
+  },
+
+  /* 16 ───────────────────────────────────────────────────────── */
+  {
     slug: "web-design-review",
     category: "skills-tooling",
     year: "2026",
@@ -672,6 +727,8 @@ window.PROJECTS = [
         en: "Bundled into a distributable .skill; grounded in Rams, Swiss Design, Apple HIG, Refactoring UI, Nielsen, Baymard." },
       { zh: "硬性品質門檻：每條建議都必須具體、可量化、講清楚取捨，禁用「更現代」「更乾淨」這類沒資訊量的空話。",
         en: "A hard quality bar: every suggestion must be concrete, quantified, and trade-off-aware — banning empty words like \"more modern\" or \"cleaner\"." },
+      { zh: "最近補上「行動版（RWD）」的橫切審視，特別盯重轉換的 landing／電商頁在手機上的體驗。",
+        en: "Recently added a cross-cutting mobile/RWD lens, focused on how conversion-critical landing and commerce pages behave on phones." },
     ],
     tech: ["Claude Skill", "Progressive Disclosure", "Severity Rubric", "Design Systems"],
     status: { zh: "已發佈（打包並安裝）", en: "Shipped (packaged & installed)" },
@@ -682,7 +739,7 @@ window.PROJECTS = [
     ],
   },
 
-  /* 16 ───────────────────────────────────────────────────────── */
+  /* 17 ───────────────────────────────────────────────────────── */
   {
     slug: "video-contest",
     category: "skills-tooling",

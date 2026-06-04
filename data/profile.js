@@ -83,8 +83,8 @@ window.PROFILE = {
 
   // --- Headline stats strip ---
   stats: [
-    { value: "16",  label: { zh: "精選作品", en: "Featured projects" } },
-    { value: "5",   label: { zh: "代理技能與工具", en: "Agent skills & tools" } },
+    { value: "17",  label: { zh: "精選作品", en: "Featured projects" } },
+    { value: "6",   label: { zh: "代理技能與工具", en: "Agent skills & tools" } },
     { value: "3",   label: { zh: "正式上線的自主系統", en: "Autonomous systems in production" } },
     { value: "2",   label: { zh: "介面語言", en: "Languages" } },
   ],
