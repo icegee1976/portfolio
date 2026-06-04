@@ -288,6 +288,7 @@ html[data-lang="zh"] .flowmini li { font-size: .95rem; }
 .cover--skills-tooling   { background: linear-gradient(135deg, #EFF2EC, #F2EFF7); }
 .cover--agent-apps       { background: linear-gradient(135deg, #F3EEEA, #ECF0F6); }
 .cover--ai-creative      { background: linear-gradient(135deg, #F1EEF6, #F6EFEA); }
+.cover--utilities        { background: linear-gradient(135deg, #ECEEF0, #F4F1EB); }
 
 .badge-conf {
   position: absolute; top: 1rem; right: 1rem; z-index: 2;

@@ -69,6 +69,7 @@ python -m http.server 5517
 | `skills-tooling` | 代理技能與工具 | Skills & Agent Tooling |
 | `agent-apps` | 代理打造的應用 | Agent-Built Applications |
 | `ai-creative` | AI 影像創作流程 | AI Creative Pipelines |
+| `utilities` | 其他小工具 | More Tools |
 
 要加新分類：在 `CATEGORIES` 加一筆，並在 `styles.css` 為它加一個 `.cover--<id>` 漸層（選填）。
 

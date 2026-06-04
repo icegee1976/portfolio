@@ -7,3 +7,11 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+
+# Always revalidate the data + render engine so content updates show up
+# immediately for returning visitors (avoids stale-cache surprises).
+# Images keep the host's default long cache (they rarely change).
+/data/*
+  Cache-Control: no-cache
+/assets/js/*
+  Cache-Control: no-cache
