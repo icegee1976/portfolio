@@ -5,7 +5,7 @@
    `featured: true` only enlarges a card (currently the top 5). To add a project,
    copy an object, edit it, and slot it in by difficulty. No build step.
    Every text field is bilingual { zh, en }. Optional visuals: pipeline[], metrics[],
-   terminal, images[]. categories: agentic-systems | skills-tooling | agent-apps | ai-creative
+   terminal, images[]. categories: agentic-systems | skills-tooling | agent-apps | ai-creative | utilities
    ============================================================================= */
 
 window.PROJECTS = [
@@ -422,6 +422,33 @@ window.PROJECTS = [
     images: [
       { src: "assets/img/projects/web-design-review/report.webp", alt: { zh: "用此技能審視本作品集後產出的報告", en: "A review report this skill produced for this portfolio" }, caption: { zh: "這個技能審視本作品集後產出的報告（五大面向、P0/P1/P2 分級）。", en: "The report this skill produced when reviewing this very portfolio (five dimensions, P0/P1/P2)." } },
     ],
+  },
+
+  /* 13 ───────────────────────────────────────────────────────── */
+  {
+    slug: "more-tools",
+    category: "utilities",
+    year: "2026",
+    source: "Code · Cowork",
+    title: { zh: "小工具合輯", en: "A Bundle of Smaller Tools" },
+    tagline: { zh: "一些順手做的單一用途小工具——影片／相簿下載器、PDF 抽頁、競賽收件自動化。各自不大，但每個都把一件事做利落。", en: "A handful of small single-purpose tools built along the way — video/album downloaders, PDF page extraction, contest-intake automation. None large on its own, but each does one thing cleanly." },
+    description: { zh: "把幾個規模較小、但做得完整的小工具收在一起。它們的共通點是「用對的技術，把一件事做乾淨」：能在瀏覽器本機處理就不上傳、用 SSE 與背景執行緒讓進度即時又不卡、寫測試與備援介面讓它換環境也跑得起來。", en: "A bundle of smaller-but-complete utilities. The throughline is doing one thing cleanly with the right technique: processing locally in the browser instead of uploading, using SSE and background threads to keep progress live without freezing, and adding tests and fallback UIs so each runs across environments." },
+    metrics: [
+      { value: "4", label: { zh: "收錄工具", en: "tools bundled" } },
+      { value: "3", label: { zh: "用到的語言", en: "languages" } },
+    ],
+    highlights: [
+      { zh: "PDF 蒸餾器 — 純前端（pdf-lib／pdfjs／JSZip）依頁碼範圍把 PDF 輸出成新 PDF 或 JPG／PNG 壓縮包，檔案全程不離開瀏覽器。",
+        en: "PDF Distiller — a client-side (pdf-lib/pdfjs/JSZip) tool that extracts page ranges into a new PDF or a JPG/PNG ZIP, with files never leaving the browser." },
+      { zh: "Flickr 相簿下載器 — 批次下載公開相簿、依 metadata 自動整理；做了 Web／Tkinter／PowerShell 三套介面＋單元測試。",
+        en: "Flickr Album Downloader — batch-downloads public albums, auto-organized from metadata; ships web / Tkinter / PowerShell UIs plus unit tests." },
+      { zh: "YT 批次下載器 — Flask + yt-dlp 的本機下載台，用 SSE 即時回報進度、背景執行緒控制並行（桌面成品版即 LumaGrab）。",
+        en: "YT Batch Downloader — a local Flask + yt-dlp station with SSE live progress and threaded concurrency (its desktop-product sibling is LumaGrab)." },
+      { zh: "競賽影片收件器 — 48 小時收件用的 PowerShell 工具，會自我修復相依套件、用 magic-byte 驗副檔名，實跑 81/88 成功。",
+        en: "Contest Intake Downloader — a PowerShell tool for 48-hour submission windows that self-heals dependencies and verifies extensions by magic bytes (81/88 in a real run)." },
+    ],
+    tech: ["React", "pdf-lib", "Python", "Flask", "yt-dlp", "SSE", "PowerShell", "Unit Tests"],
+    status: { zh: "都是可用的小工具", en: "All working utilities" },
   },
 
 ];

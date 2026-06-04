@@ -12,6 +12,7 @@ window.CATEGORIES = [
   { id: "skills-tooling",  label: { zh: "代理技能與工具", en: "Skills & Agent Tooling" } },
   { id: "agent-apps",      label: { zh: "代理打造的應用", en: "Agent-Built Applications" } },
   { id: "ai-creative",     label: { zh: "AI 影像創作流程", en: "AI Creative Pipelines" } },
+  { id: "utilities",       label: { zh: "其他小工具", en: "More Tools" } },
 ];
 
 window.I18N = {
