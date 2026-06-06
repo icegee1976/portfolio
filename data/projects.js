@@ -34,7 +34,7 @@ window.PROJECTS = [
     tech: ["Python", "Multi-Agent Orchestration", "Vanilla JS"],
     status: { zh: "生產中（內部）", en: "Production (internal)" },
     images: [
-      { src: "assets/img/projects/agent-prompt-pipeline/ui.webp", alt: { zh: "工作台介面（去識別化重繪）", en: "Workbench UI (anonymized recreation)" }, caption: { zh: "工作台介面（去識別化重繪）。", en: "The workbench UI — an anonymized recreation." } },
+      { src: "assets/img/projects/agent-prompt-pipeline/cover.webp", alt: { zh: "概念封面：劇本化為一連串鏡頭", en: "Cover concept: a script becoming a sequence of shots" }, caption: { zh: "一份劇本，整理成一連串可以直接生成的鏡頭。", en: "A script, organized into a sequence of shots ready to generate." } },
     ],
   },
 
@@ -73,7 +73,7 @@ window.PROJECTS = [
     tech: ["Electron", "Vite", "TypeScript", "React / Radix", "Three.js (WebGL2 / GLSL)", "MediaPipe", "VRM / kalidokit", "Node WS / UDP"],
     status: { zh: "Alpha（內部）", en: "Alpha (internal)" },
     images: [
-      { src: "assets/img/projects/vp-studio/ui.webp", alt: { zh: "即時虛擬製作介面（去識別化重繪）", en: "Real-time virtual-production UI (anonymized recreation)" }, caption: { zh: "即時合成介面——去識別化重繪，右側為多階段去背 Keyer。", en: "The live-compositing UI — an anonymized recreation; the multi-stage keyer is on the right." } },
+      { src: "assets/img/projects/vp-studio/cover.webp", alt: { zh: "概念封面：真實與虛擬的即時合成", en: "Cover concept: real and virtual composited live" }, caption: { zh: "把真實棚景與虛擬世界，即時合成為同一個畫面。", en: "Compositing a real studio and a virtual world into one live frame." } },
     ],
   },
 
@@ -362,6 +362,9 @@ window.PROJECTS = [
     ],
     tech: ["Python", "CLI", "SQLite", "YAML config", "LLM scoring", "Scheduled task"],
     status: { zh: "可用的 CLI 工具", en: "Working CLI tool" },
+    images: [
+      { src: "assets/img/projects/trend-briefing-cli/cover.webp", alt: { zh: "趨勢簡報 CLI 封面", en: "Trend briefing CLI cover" }, caption: { zh: "把雜訊般的訊號，收斂成一份乾淨的每日簡報。", en: "Distilling noisy signals into one clean daily brief." } },
+    ],
   },
 
   /* 11 ───────────────────────────────────────────────────────────── */
@@ -395,6 +398,9 @@ window.PROJECTS = [
     ],
     tech: ["Claude Skill (SKILL.md)", "Python", "Quality Gates", "MIT Open-Source"],
     status: { zh: "已發佈（開源、安裝中使用）", en: "Shipped (open-source, installed & in use)" },
+    images: [
+      { src: "assets/img/projects/writers-guild/cover.webp", alt: { zh: "反 AI 味寫作技能封面", en: "Anti-AI-tell writing skill cover" }, caption: { zh: "在制式的網格之上，留住一個有人味的聲音。", en: "A human voice held above the sterile grid." } },
+    ],
   },
 
   /* 12 ───────────────────────────────────────────────────────────── */
@@ -452,6 +458,9 @@ window.PROJECTS = [
     ],
     tech: ["React", "pdf-lib", "Python", "Flask", "yt-dlp", "SSE", "PowerShell", "Unit Tests"],
     status: { zh: "都是可用的小工具", en: "All working utilities" },
+    images: [
+      { src: "assets/img/projects/more-tools/cover.webp", alt: { zh: "小工具合輯封面", en: "Utility bundle cover" }, caption: { zh: "一組順手、各司其職的小工具。", en: "A neat set of small, single-purpose tools." } },
+    ],
   },
 
 ];
