@@ -170,6 +170,9 @@ window.PROJECTS = [
     ],
     tech: ["Python", "Pillow", "Claude Scheduled Tasks", "MCP (Gmail / Calendar)", "WebSearch", "writers-guild skill"],
     status: { zh: "生產中", en: "Production" },
+    images: [
+      { src: "assets/img/projects/fb-content-engine/cover.webp", alt: { zh: "自走內容引擎封面", en: "Autonomous content engine cover" }, caption: { zh: "從一個核心，規律地長出一張張知識卡。", en: "Knowledge cards growing on a steady rhythm from a single core." } },
+    ],
   },
 
   /* 06 ───────────────────────────────────────────────────────────── */
@@ -195,6 +198,9 @@ window.PROJECTS = [
     ],
     tech: ["Python", "Tkinter", "rawpy / libraw", "Pillow", "NumPy", "Claude Code"],
     status: { zh: "個人工具（開源）", en: "Personal tool (open-source)" },
+    images: [
+      { src: "assets/img/projects/raw-viewer/cover.webp", alt: { zh: "RAW 影像檢視器封面", en: "RAW image viewer cover" }, caption: { zh: "從一堆 RAW 裡，快速對焦出可用的那幾張。", en: "Pulling the keepers into focus from a pile of RAWs." } },
+    ],
   },
 
   /* 07 ───────────────────────────────────────────────────────────── */
@@ -229,6 +235,9 @@ window.PROJECTS = [
     ],
     tech: ["ASP.NET Core", ".NET 9", "C#", "LibreOffice Headless", "Windows OCR", "ZIP packaging"],
     status: { zh: "可本機執行（start.ps1 → localhost:5166）", en: "Runs locally (start.ps1 → localhost:5166)" },
+    images: [
+      { src: "assets/img/projects/html-gnrtr/cover.webp", alt: { zh: "文件轉 HTML 轉換器封面", en: "Document-to-HTML converter cover" }, caption: { zh: "把文件變成乾淨、可預覽的數位頁面。", en: "Turning documents into clean, previewable digital pages." } },
+    ],
   },
 
   /* 08 ───────────────────────────────────────────────────────────── */
