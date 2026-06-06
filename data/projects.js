@@ -272,6 +272,9 @@ window.PROJECTS = [
     ],
     tech: ["Electron", "Vite", "yt-dlp", "ffmpeg", "electron-builder", "NSIS"],
     status: { zh: "可打包成 Windows 安裝檔（v0.3.2）", en: "Packable Windows installer (v0.3.2)" },
+    images: [
+      { src: "assets/img/projects/lumagrab-video-downloader/cover.webp", alt: { zh: "LumaGrab 下載器封面", en: "LumaGrab downloader cover" }, caption: { zh: "把散落的影音，收進一個整齊的媒體庫。", en: "Bringing scattered media home into one tidy library." } },
+    ],
   },
 
   /* 09 ───────────────────────────────────────────────────────────── */
@@ -313,6 +316,9 @@ window.PROJECTS = [
     ],
     tech: ["Claude Skill", "Eval Harness", "Severity Rubric", "Progressive Disclosure"],
     status: { zh: "已發佈（v1.1，eval 驗證過）", en: "Shipped (v1.1, eval-validated)" },
+    images: [
+      { src: "assets/img/projects/code-review/cover.webp", alt: { zh: "Code Review 技能封面", en: "Code review skill cover" }, caption: { zh: "在大師的眼光下，逐行審視程式碼。", en: "Code under a master's eye, reviewed line by line." } },
+    ],
   },
 
   /* 10 ───────────────────────────────────────────────────────────── */
