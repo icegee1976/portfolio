@@ -198,10 +198,16 @@
         '<p class="contact__text">' + t("contact_text") + '</p>' +
         '<div class="contact__actions">' +
           '<a class="btn btn--primary" href="mailto:' + esc(P.email) + '">' + t("contact_email") + ' <span class="arrow" aria-hidden="true">→</span></a>' +
-          '<span class="chip">' + esc(P.email) + '</span>' +
+          '<button class="chip chip--copy" type="button" id="emailCopy" title="' + t("contact_copy") + '">' + esc(P.email) + '</button>' +
         '</div>' +
         '<div class="contact__links">' + links + '</div>' +
       '</div>';
+    var cp = $("#emailCopy");
+    if (cp) cp.addEventListener("click", function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(P.email);
+      cp.textContent = t("contact_copied"); cp.classList.add("is-copied");
+      setTimeout(function () { cp.textContent = P.email; cp.classList.remove("is-copied"); }, 1600);
+    });
   }
 
   function renderFooter() {

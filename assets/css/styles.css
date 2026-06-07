@@ -133,6 +133,9 @@ html[data-lang="zh"] .section-title { letter-spacing: .01em; line-height: 1.28; 
   padding: .32rem .7rem; border: 1px solid var(--line-strong); border-radius: 100px;
   color: var(--ink-soft); background: var(--surface); white-space: nowrap;
 }
+.chip--copy { cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.chip--copy:hover { border-color: var(--ink); color: var(--ink); }
+.chip--copy.is-copied { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }

@@ -74,6 +74,8 @@ window.I18N = {
   contact_text:   { zh: "我對 agentic engineering、AI 自動化與 AI 工具開發的職位特別有興趣。歡迎來信。",
                     en: "I'm especially interested in roles in agentic engineering, AI automation, and AI tooling. Let's talk." },
   contact_email:  { zh: "寄信給我", en: "Email me" },
+  contact_copy:   { zh: "點一下複製 Email", en: "Click to copy email" },
+  contact_copied: { zh: "已複製 ✓", en: "Copied ✓" },
 
   // --- footer ---
   footer_built: { zh: "這個網站採資料驅動的純靜態架構，不需建置步驟就能隨時新增專案。",
